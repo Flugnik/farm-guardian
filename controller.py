@@ -11,7 +11,9 @@ class ControllerError(Exception):
     pass
 
 
-ALIASES_FILE = Path("farm_memory/resources/animals.json")
+# Путь стабилен независимо от того, откуда запущен бот
+HERE = Path(__file__).resolve().parent
+ALIASES_FILE = HERE / "farm_memory" / "resources" / "animals.json"
 
 
 def _normalize_text(text: str) -> str:
@@ -56,7 +58,15 @@ def extract_animal_slugs(text: str) -> List[str]:
                 found.append(slug)
                 break
 
-    return found
+    # дедуп с сохранением порядка
+    uniq: List[str] = []
+    seen = set()
+    for s in found:
+        if s not in seen:
+            uniq.append(s)
+            seen.add(s)
+
+    return uniq
 
 
 def _build_write(path: str, block_id: str, content: str) -> Dict[str, Any]:
@@ -79,6 +89,7 @@ def build_plan_from_text(text: str) -> Dict[str, Any]:
 
     writes = [_build_write(journal_path, "notes", content)]
     animal_paths: List[str] = []
+
     for slug in slugs:
         card_path = f"resources/animals/{slug}.md"
         animal_paths.append(card_path)

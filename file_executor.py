@@ -53,21 +53,27 @@ def _append_entry_to_section(lines: list[str], heading_index: int, content: str)
     lines.insert(insert_at, stamp_line)
 
 
-def _default_template_for(path: str, name: str) -> str:
-    p = path.replace("\\", "/").lower()
+def _default_template_for(rel_path: str, name: str) -> str:
+    p = (rel_path or "").replace("\\", "/").lower()
+
     if p.startswith("resources/journal/"):
         return "# Дневной журнал\n\n## Записи\n\n"
+
     if p.startswith("resources/animals/"):
         return f"# Карточка животного: {name}\n\n## Хроника\n\n"
-    if "/resources/" in p or "/system/" in p:
+
+    # ВАЖНО: раньше было "/resources/" in p и почти никогда не срабатывало
+    if p.startswith("resources/") or p.startswith("system/"):
         return (
             "# Склад: Учет кормов и добавок\n\n"
             "## Текущие запасы\n\n"
             "- Пока склад пуст.\n\n"
             "## Лог\n\n"
         )
-    if "/animals/" in p:
+
+    if p.startswith("animals/"):
         return f"# Карточка животного: {name}\n\n## Наблюдения\n\n"
+
     return "# Журнал\n\n## Записи\n\n"
 
 
@@ -108,7 +114,8 @@ def execute(data: dict) -> Dict[str, Any]:
     full_path = os.path.join(base_dir, clean_path)
     os.makedirs(os.path.dirname(full_path), exist_ok=True)
 
-    rel_path = decoded_path.replace("\\", "/")
+    # ВАЖНО: rel_path делаем из clean_path, чтобы не было farm_memory/... и чтобы шаблоны работали стабильно
+    rel_path = clean_path.replace(os.sep, "/")
     file_name = os.path.basename(full_path)
 
     if action == "modify":

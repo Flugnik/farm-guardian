@@ -2,14 +2,12 @@ import json
 import logging
 import os
 import re
-from datetime import datetime as dt
 from pathlib import Path
-from typing import Any, Dict, Optional
+from typing import Any, Dict
 
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
-from llm_client import AnythingLLMClient, LLMClientError
 from controller import (
     build_plan_from_text,
     execute_action,
@@ -28,28 +26,10 @@ logging.basicConfig(
 logger = logging.getLogger("bot")
 
 
-# -------------------- PROMPT --------------------
-SYSTEM_PROMPT = f"""
-Strict JSON only. No prose. No markdown blocks.
-Date: {dt.now().strftime('%Y-%m-%d')}
-
-EXAMPLES:
-- "Открыли сено" -> {{"action":"modify","path":"resources/feed.md","mode":"replace_block","block_id":"inventory","content":"Открыт рулон сена 300кг"}}
-- "Рэй активен" -> {{"action":"modify","path":"animals/рэй.md","mode":"replace_block","block_id":"observations","content":"Активное состояние"}}
-- "Купили зерно" -> {{"action":"modify","path":"resources/feed.md","mode":"replace_block","block_id":"log","content":"Закупка зерна 50кг"}}
-
-MAP:
-- Сено/Зерно/Корм -> resources/feed.md (block_id: inventory или log)
-- Животные -> animals/имя.md (block_id: observations)
-- Другое -> journal/{dt.now().strftime('%Y-%m-%d')}.md
-""".strip()
-
-
 # -------------------- CONFIG (secrets.json) --------------------
 def _read_json(path: Path) -> Dict[str, Any]:
     """
-    ВАЖНО: utf-8-sig съедает BOM.
-    Это лечит ошибку: Unexpected UTF-8 BOM
+    utf-8-sig съедает BOM.
     """
     try:
         raw = path.read_text(encoding="utf-8-sig")
@@ -68,7 +48,6 @@ def load_config() -> Dict[str, str]:
     """
     here = Path(__file__).resolve().parent
     secrets_path = here / "config" / "secrets.json"
-
     secrets = _read_json(secrets_path)
 
     def pick(key: str, default: str = "") -> str:
@@ -80,20 +59,15 @@ def load_config() -> Dict[str, str]:
 
     cfg = {
         "TELEGRAM_TOKEN": pick("TELEGRAM_TOKEN"),
-        "ANYTHINGLLM_API_KEY": pick("ANYTHINGLLM_API_KEY"),
-        "ANYTHINGLLM_BASE_URL": pick("ANYTHINGLLM_BASE_URL", "http://127.0.0.1:3001"),
-        "ANYTHINGLLM_WORKSPACE": pick("ANYTHINGLLM_WORKSPACE", "moya-rabochaya-oblast"),
-        "REQUEST_TIMEOUT": pick("REQUEST_TIMEOUT", "300"),
         "PENDING_TTL_SECONDS": pick("PENDING_TTL_SECONDS", "900"),  # 15 минут
         "SECRETS_PATH": str(secrets_path),
     }
 
-    missing = [k for k in ("TELEGRAM_TOKEN", "ANYTHINGLLM_API_KEY") if not cfg[k]]
-    if missing:
+    if not cfg["TELEGRAM_TOKEN"]:
         raise RuntimeError(
-            "Не хватает ключей: " + ", ".join(missing) + "\n"
+            "Не хватает ключа TELEGRAM_TOKEN.\n"
             f"Проверь файл: {cfg['SECRETS_PATH']}\n"
-            "Он должен содержать TELEGRAM_TOKEN и ANYTHINGLLM_API_KEY."
+            "Он должен содержать TELEGRAM_TOKEN."
         )
 
     return cfg
@@ -117,30 +91,7 @@ def _safe_display(text: str) -> str:
     return text
 
 
-# -------------------- GLOBALS --------------------
-llm: Optional[AnythingLLMClient] = None
 CFG: Dict[str, str] = {}
-
-
-def init_llm():
-    global llm
-    timeout = int(CFG.get("REQUEST_TIMEOUT", "300") or "300")
-
-    try:
-        llm = AnythingLLMClient(
-            base_url=CFG["ANYTHINGLLM_BASE_URL"],
-            api_key=CFG["ANYTHINGLLM_API_KEY"],
-            workspace=CFG["ANYTHINGLLM_WORKSPACE"],
-            timeout=timeout,
-        )
-    except TypeError:
-        llm = AnythingLLMClient(
-            base_url=CFG["ANYTHINGLLM_BASE_URL"],
-            api_key=CFG["ANYTHINGLLM_API_KEY"],
-            workspace=CFG["ANYTHINGLLM_WORKSPACE"],
-        )
-
-    logger.info("LLMClient: base=%s workspace=%s", CFG["ANYTHINGLLM_BASE_URL"], CFG["ANYTHINGLLM_WORKSPACE"])
 
 
 async def _edit_status(msg, text: str):
@@ -173,8 +124,6 @@ async def ping(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await update.message.reply_text(
         _safe_display(
             "✅ На связи.\n"
-            f"Workspace: {CFG.get('ANYTHINGLLM_WORKSPACE')}\n"
-            f"BaseURL: {CFG.get('ANYTHINGLLM_BASE_URL')}\n"
             f"Secrets: {CFG.get('SECRETS_PATH')}\n"
             f"Pending TTL: {CFG.get('PENDING_TTL_SECONDS')} sec"
         ),
@@ -224,7 +173,7 @@ async def handle_farm_request(update: Update, prompt: str):
         preview = format_plan_preview(data) + "\n\nПодтвердить: /yes\nОтменить: /no"
         await _edit_status(status_msg, preview)
 
-    except (LLMClientError, ControllerError) as e:
+    except ControllerError as e:
         logger.exception("Handled error")
         await _edit_status(status_msg, f"❌ Ошибка: {e}")
     except Exception as e:
@@ -252,7 +201,6 @@ async def observe(update: Update, context: ContextTypes.DEFAULT_TYPE):
 def main():
     global CFG
     CFG = load_config()
-    init_llm()
 
     app = ApplicationBuilder().token(CFG["TELEGRAM_TOKEN"]).build()
     app.add_handler(CommandHandler("start", start))

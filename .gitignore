@@ -14,3 +14,4 @@ pending_store.json
 
 # логи
 *.log
+farm_memory/resources/journal/
