@@ -11,7 +11,7 @@ from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 from llm_client import AnythingLLMClient, LLMClientError
 from controller import (
-    parse_llm_json,
+    build_plan_from_text,
     execute_action,
     format_plan_preview,
     ControllerError,
@@ -206,24 +206,17 @@ async def yes(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def no(update: Update, context: ContextTypes.DEFAULT_TYPE):
     chat_id = update.effective_chat.id
     clear_plan(chat_id)
-    await update.message.reply_text("🗑️ Отменено.", disable_web_page_preview=True)
+    await update.message.reply_text("ОТМЕНЕНО", disable_web_page_preview=True)
 
 
 async def handle_farm_request(update: Update, prompt: str):
     status_msg = await update.message.reply_text("⏳ Дух вникает...")
 
     try:
-        if llm is None:
-            raise RuntimeError("LLM не инициализирован (llm is None)")
-
         ttl = int(CFG.get("PENDING_TTL_SECONDS", "900") or "900")
         cleanup(ttl_seconds=ttl)
 
-        full_prompt = f"{SYSTEM_PROMPT}\n\nTask: {prompt}"
-        llm_answer = llm.ask(full_prompt)
-        logger.info("LLM raw: %s", llm_answer)
-
-        data = parse_llm_json(llm_answer)
+        data = build_plan_from_text(prompt)
 
         chat_id = update.effective_chat.id
         set_plan(chat_id, data)
