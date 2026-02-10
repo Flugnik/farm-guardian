@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+
+# venv
+venv/
+
+# секреты
+config/secrets.json
+
+# локальные данные бота (если появятся)
+.pending/
+pending_store.json
+
+# логи
+*.log
