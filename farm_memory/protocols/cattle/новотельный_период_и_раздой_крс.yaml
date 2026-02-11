@@ -1,0 +1,24 @@
+# generated from Notion CSV on 2026-02-10T14:18:41
+name: "Новотёльный период и раздой КРС"
+species: "cattle"
+steps:
+  - day: 0
+    title: "Профилактика родильного пареза"
+    critical: true
+    priority: "critical"
+    priority_level: 3
+    note: "Инъекция комплексного кальциевого препарата сразу после отёла."
+    medical_ref: "cattle/новотельный_период_и_раздой_крс__профилактика_родильного_пареза.md"
+  - day: 1
+    title: "Курс Бутастима (восстановление)"
+    critical: true
+    priority: "critical"
+    priority_level: 3
+    note: "Начало курса восстановления обмена веществ после отёла."
+    medical_ref: "cattle/новотельный_период_и_раздой_крс__курс_бутастима_восстановление.md"
+  - day: 35
+    title: "УЗИ-диагностика на стельность"
+    critical: true
+    priority: "critical"
+    priority_level: 3
+    note: "Проверка на стельность для планирования дальнейших действий."

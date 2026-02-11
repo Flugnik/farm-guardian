@@ -15,3 +15,7 @@ pending_store.json
 # логи
 *.log
 farm_memory/resources/journal/
+
+farm_memory/farm_memory_generated.zip
+storage/*.json
+

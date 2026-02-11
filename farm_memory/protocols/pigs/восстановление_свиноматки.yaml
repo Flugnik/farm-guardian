@@ -1,0 +1,36 @@
+# generated from Notion CSV on 2026-02-10T14:18:41
+name: "Восстановление свиноматки"
+species: "pigs"
+steps:
+  - day: 0
+    title: "Отъем поросят"
+    critical: true
+    priority: "critical"
+    priority_level: 3
+    note: "Начало периода восстановления. Переведите свиноматку в группу холостых."
+  - day: 2
+    title: "Контроль состояния"
+    critical: false
+    priority: "high"
+    priority_level: 2
+    note: "Оцените состояние свиноматки после отъема. Скорректируйте рацион для восстановления."
+  - day: 7
+    title: "Плановая дегельминтизация"
+    critical: true
+    priority: "critical"
+    priority_level: 3
+    note: "Проведение обработки от внутренних и внешних паразитов."
+    medical_ref: "pigs/восстановление_свиноматки__плановая_дегельминтизация.md"
+  - day: 14
+    title: "Вакцинация (Рожа, КЧС)"
+    critical: true
+    priority: "critical"
+    priority_level: 3
+    note: "Проведение плановой вакцинации против рожи и классической чумы свиней."
+    medical_ref: "pigs/восстановление_свиноматки__вакцинация_рожа_кчс.md"
+  - day: 21
+    title: "Подготовка к осеменению"
+    critical: true
+    priority: "critical"
+    priority_level: 3
+    note: "Наблюдение за признаками прихода в охоту для планирования следующего осеменения."

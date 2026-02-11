@@ -1,0 +1,136 @@
+# generated from Notion CSV on 2026-02-10T14:18:41
+name: "Теленок с 0-2 месяцев"
+species: "calves"
+steps:
+  - day: 0
+    title: "Выпойка молозива"
+    critical: true
+    priority: "critical"
+    priority_level: 3
+    note: "Выпоить 3-4 литра качественного молозива в первые 2-4 часа жизни."
+    medical_ref: "calves/теленок_с_0_2_месяцев__выпойка_молозива.md"
+  - day: 0
+    title: "Обработка пуповины"
+    critical: false
+    priority: "normal"
+    priority_level: 1
+    note: "Обработать пуповину сразу после рождения"
+    medical_ref: "calves/теленок_с_0_2_месяцев__обработка_пуповины.md"
+  - day: 1
+    title: "Обработка пуповины"
+    critical: true
+    priority: "critical"
+    priority_level: 3
+    note: "Обработать пуповину раствором антисептика для профилактики инфекций."
+    medical_ref: "calves/теленок_с_0_2_месяцев__обработка_пуповины.md"
+  - day: 1
+    title: "Первое взвешивание"
+    critical: false
+    priority: "normal"
+    priority_level: 1
+    note: "Зафиксировать стартовый вес"
+    medical_ref: "calves/теленок_с_0_2_месяцев__первое_взвешивание.md"
+  - day: 3
+    title: "Витамины АДЕ"
+    critical: false
+    priority: "normal"
+    priority_level: 1
+    note: "Поддержка иммунитета"
+    medical_ref: "calves/теленок_с_0_2_месяцев__витамины_аде.md"
+  - day: 3
+    title: "Профилактика авитаминозов"
+    critical: true
+    priority: "critical"
+    priority_level: 3
+    note: "Инъекция комплексных витаминов и селена для стимуляции иммунитета."
+    medical_ref: "calves/теленок_с_0_2_месяцев__профилактика_авитаминозов.md"
+  - day: 4
+    title: "Начать подкормку комбикормом"
+    critical: false
+    priority: "normal"
+    priority_level: 1
+    note: "Начать подкормку комбикормом по специальному рецепту. Комбикорм должен быть постоянно в доступе. Цель: привес 750-800 г/сутки!"
+    medical_ref: "calves/теленок_с_0_2_месяцев__начать_подкормку_комбикормом.md"
+  - day: 7
+    title: "Контроль веса"
+    critical: false
+    priority: "normal"
+    priority_level: 1
+    note: "Проверить набор веса"
+    medical_ref: "calves/теленок_с_0_2_месяцев__контроль_веса.md"
+  - day: 10
+    title: "Ввод стартерного корма"
+    critical: false
+    priority: "high"
+    priority_level: 2
+    note: "Начать предлагать качественный престартер и обеспечить доступ к воде.
+🌽 Лучший состав комбикорма (4 дня - 4 месяца):
+• Кукуруза зерно – 50%
+• Овёс - 27,9%
+• БВМД - 20% (или полножирная экструдированная соя)
+• Патока - 2% (сухая)
+• Премикс - 0,1%"
+    medical_ref: "calves/теленок_с_0_2_месяцев__ввод_стартерного_корма.md"
+  - day: 14
+    title: "Респираторные вакцины #1"
+    critical: false
+    priority: "normal"
+    priority_level: 1
+    note: "Против респираторных инфекций. Проводить строго в пятницу"
+    medical_ref: "calves/теленок_с_0_2_месяцев__респираторные_вакцины_1.md"
+  - day: 25
+    title: "Лептоспироз #1"
+    critical: false
+    priority: "normal"
+    priority_level: 1
+    note: "Против лептоспироза. Обязательная государственная вакцина"
+    medical_ref: "calves/теленок_с_0_2_месяцев__лептоспироз_1.md"
+  - day: 30
+    title: "Контроль потребления концентратов"
+    critical: false
+    priority: "normal"
+    priority_level: 1
+    note: "Проверить потребление комбикорма. Снимать с молока можно только при потреблении не менее 500г концентратов в сутки, лучше при 1кг"
+    medical_ref: "calves/теленок_с_0_2_месяцев__контроль_потребления_концентратов.md"
+  - day: 35
+    title: "ОКЗ #1"
+    critical: false
+    priority: "normal"
+    priority_level: 1
+    note: "ОКЗ - против сальмонеллеза, колибактериоза"
+    medical_ref: "calves/теленок_с_0_2_месяцев__окз_1.md"
+  - day: 45
+    title: "Первая вакцинация"
+    critical: true
+    priority: "critical"
+    priority_level: 3
+    note: "Проведение плановой вакцинации против клостридиозов (энтеротоксемия, столбняк)."
+    medical_ref: "calves/теленок_с_0_2_месяцев__первая_вакцинация.md"
+  - day: 45
+    title: "Респираторные вакцины #2"
+    critical: false
+    priority: "normal"
+    priority_level: 1
+    note: "Ревакцинация респираторных вакцин"
+    medical_ref: "calves/теленок_с_0_2_месяцев__респираторные_вакцины_2.md"
+  - day: 47
+    title: "Лептоспироз #2"
+    critical: false
+    priority: "normal"
+    priority_level: 1
+    note: "Ревакцинация лептоспироза"
+    medical_ref: "calves/теленок_с_0_2_месяцев__лептоспироз_2.md"
+  - day: 50
+    title: "ОКЗ #2"
+    critical: false
+    priority: "normal"
+    priority_level: 1
+    note: "Ревакцинация ОКЗ"
+    medical_ref: "calves/теленок_с_0_2_месяцев__окз_2.md"
+  - day: 50
+    title: "Первая вакцинация телят"
+    critical: true
+    priority: "critical"
+    priority_level: 3
+    note: "Проведение плановой вакцинации согласно ветеринарной схеме."
+    medical_ref: "calves/теленок_с_0_2_месяцев__первая_вакцинация_телят.md"
