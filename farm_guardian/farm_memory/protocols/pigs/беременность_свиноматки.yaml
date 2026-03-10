@@ -1,0 +1,32 @@
+# generated from Notion CSV on 2026-02-10T14:18:41
+name: "Беременность свиноматки"
+species: "pigs"
+steps:
+  - day: 63
+    title: "Вакцинация против колибактериоза (1/2)"
+    critical: true
+    priority: "critical"
+    priority_level: 3
+    note: "Первая вакцинация по промышленному протоколу."
+    medical_ref: "pigs/беременность_свиноматки__вакцинация_против_колибактериоза_1_2.md"
+  - day: 70
+    title: "Дегельминтизация (промышленный протокол)"
+    critical: true
+    priority: "critical"
+    priority_level: 3
+    note: "Обработка на 70-й день супоросности."
+    medical_ref: "pigs/беременность_свиноматки__дегельминтизация_промышленный_протокол.md"
+  - day: 80
+    title: "Вакцинация против болезни Ауески"
+    critical: true
+    priority: "critical"
+    priority_level: 3
+    note: "Вакцинация по промышленному протоколу."
+    medical_ref: "pigs/беременность_свиноматки__вакцинация_против_болезни_ауески.md"
+  - day: 95
+    title: "Вакцинация против колибактериоза (2/2)"
+    critical: true
+    priority: "critical"
+    priority_level: 3
+    note: "Ревакцинация по промышленному протоколу."
+    medical_ref: "pigs/беременность_свиноматки__вакцинация_против_колибактериоза_2_2.md"

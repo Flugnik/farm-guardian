@@ -1,0 +1,45 @@
+# generated from Notion CSV on 2026-02-10T14:18:41
+name: "Лактация свиноматки"
+species: "pigs"
+steps:
+  - day: 0
+    title: "Опорос"
+    critical: true
+    priority: "critical"
+    priority_level: 3
+    note: "Начало периода лактации. Зафиксируйте количество и состояние новорожденных поросят."
+  - day: 1
+    title: "Обработка новорожденных"
+    critical: true
+    priority: "critical"
+    priority_level: 3
+    note: "Проведение необходимых процедур: обрезка пуповины, инъекция железа, купирование хвостов."
+    medical_ref: "pigs/лактация_свиноматки__обработка_новорожденных.md"
+  - day: 7
+    title: "Контроль состояния и первая подкормка"
+    critical: false
+    priority: "high"
+    priority_level: 2
+    note: "Оцените состояние поросят и начните вводить первую подкормку (престартер)."
+    medical_ref: "pigs/лактация_свиноматки__контроль_состояния_и_первая_подкормка.md"
+  - day: 10
+    title: "Вакцинация против рожи и парвовируса"
+    critical: true
+    priority: "critical"
+    priority_level: 3
+    note: "Вакцинация подсосной свиноматки по промышленному протоколу."
+    medical_ref: "pigs/лактация_свиноматки__вакцинация_против_рожи_и_парвовируса.md"
+  - day: 14
+    title: "Вакцинация поросят"
+    critical: true
+    priority: "critical"
+    priority_level: 3
+    note: "Проведение первой плановой вакцинации поросят согласно ветеринарному плану."
+    medical_ref: "pigs/лактация_свиноматки__вакцинация_поросят.md"
+  - day: 28
+    title: "Подготовка к отъему"
+    critical: false
+    priority: "high"
+    priority_level: 2
+    note: "Постепенное увеличение подкормки и подготовка к переводу на самостоятельное питание."
+    medical_ref: "pigs/лактация_свиноматки__подготовка_к_отъему.md"

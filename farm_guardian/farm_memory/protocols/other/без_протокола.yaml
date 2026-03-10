@@ -1,0 +1,9 @@
+# generated from Notion CSV on 2026-02-10T14:18:41
+name: "Без протокола"
+species: "other"
+steps:
+  - day: 0
+    title: ""
+    critical: false
+    priority: "normal"
+    priority_level: 1

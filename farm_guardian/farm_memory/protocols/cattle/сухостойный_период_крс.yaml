@@ -1,0 +1,51 @@
+# generated from Notion CSV on 2026-02-10T14:18:41
+name: "Сухостойный период КРС"
+species: "cattle"
+steps:
+  - day: 0
+    title: "Запуск коровы"
+    critical: true
+    priority: "critical"
+    priority_level: 3
+    note: "Плавное прекращение лактации, перевод на сухостойный рацион."
+  - day: 5
+    title: "Обработка копыт"
+    critical: false
+    priority: "high"
+    priority_level: 2
+    note: "Профилактическая расчистка и обработка копыт."
+  - day: 15
+    title: "Плановая дегельминтизация"
+    critical: true
+    priority: "critical"
+    priority_level: 3
+    note: "Обработка от паразитов безопасными для стельности препаратами."
+    medical_ref: "cattle/сухостойный_период_крс__плановая_дегельминтизация.md"
+  - day: 30
+    title: "Плановая вакцинация"
+    critical: true
+    priority: "critical"
+    priority_level: 3
+    note: "Вакцинация для создания колострального иммунитета у телят."
+    medical_ref: "cattle/сухостойный_период_крс__плановая_вакцинация.md"
+  - day: 53
+    title: "Курс Бутастима (подготовка к отёлу)"
+    critical: true
+    priority: "critical"
+    priority_level: 3
+    note: "Начало курса стимуляции обмена веществ перед отёлом."
+    medical_ref: "cattle/сухостойный_период_крс__курс_бутастима_подготовка_к_отелу.md"
+  - day: 57
+    title: "Инъекция Миксоферона (1/2)"
+    critical: true
+    priority: "critical"
+    priority_level: 3
+    note: "Первая инъекция для стимуляции иммунитета."
+    medical_ref: "cattle/сухостойный_период_крс__инъекция_миксоферона_1_2.md"
+  - day: 59
+    title: "Инъекция Миксоферона (2/2)"
+    critical: true
+    priority: "critical"
+    priority_level: 3
+    note: "Вторая инъекция для стимуляции иммунитета."
+    medical_ref: "cattle/сухостойный_период_крс__инъекция_миксоферона_2_2.md"

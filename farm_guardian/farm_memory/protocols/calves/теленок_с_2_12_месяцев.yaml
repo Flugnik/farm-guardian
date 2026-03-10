@@ -1,0 +1,74 @@
+# generated from Notion CSV on 2026-02-10T14:18:41
+name: "Теленок с 2-12 месяцев"
+species: "calves"
+steps:
+  - day: 45
+    title: "Трихофития #1"
+    critical: false
+    priority: "normal"
+    priority_level: 1
+    note: "Против стригущего лишая. Первая вакцина"
+    medical_ref: "calves/теленок_с_2_12_месяцев__трихофития_1.md"
+  - day: 59
+    title: "Трихофития #2"
+    critical: false
+    priority: "normal"
+    priority_level: 1
+    note: "Против стригущего лишая. Вторая вакцина через 10-14 дней"
+    medical_ref: "calves/теленок_с_2_12_месяцев__трихофития_2.md"
+  - day: 90
+    title: "Ящур"
+    critical: false
+    priority: "normal"
+    priority_level: 1
+    note: "Против ящура. Обязательно в зависимости от региона"
+    medical_ref: "calves/теленок_с_2_12_месяцев__ящур.md"
+  - day: 115
+    title: "Сибирская язва #1"
+    critical: false
+    priority: "normal"
+    priority_level: 1
+    note: "Против сибирской язвы и эмкара. Первая вакцина"
+    medical_ref: "calves/теленок_с_2_12_месяцев__сибирская_язва_1.md"
+  - day: 145
+    title: "Сибирская язва #2"
+    critical: false
+    priority: "normal"
+    priority_level: 1
+    note: "Ревакцинация через месяц"
+    medical_ref: "calves/теленок_с_2_12_месяцев__сибирская_язва_2.md"
+  - day: 180
+    title: "Бешенство"
+    critical: false
+    priority: "normal"
+    priority_level: 1
+    note: "Против бешенства. Если благоприятная ситуация"
+    medical_ref: "calves/теленок_с_2_12_месяцев__бешенство.md"
+  - day: 180
+    title: "Клостридиозы #1"
+    critical: false
+    priority: "normal"
+    priority_level: 1
+    note: "Против клостридиозов. Первая вакцина"
+    medical_ref: "calves/теленок_с_2_12_месяцев__клостридиозы_1.md"
+  - day: 210
+    title: "Клостридиозы #2"
+    critical: false
+    priority: "normal"
+    priority_level: 1
+    note: "Ревакцинация клостридиозов"
+    medical_ref: "calves/теленок_с_2_12_месяцев__клостридиозы_2.md"
+  - day: 240
+    title: "Лептоспироз (тёлочки) #1"
+    critical: false
+    priority: "normal"
+    priority_level: 1
+    note: "Лептоспироз для тёлочек (защита будущих телят)"
+    medical_ref: "calves/теленок_с_2_12_месяцев__лептоспироз_телочки_1.md"
+  - day: 420
+    title: "Лептоспироз (тёлочки) #2"
+    critical: false
+    priority: "normal"
+    priority_level: 1
+    note: "Ревакцинация лептоспироза для тёлочек"
+    medical_ref: "calves/теленок_с_2_12_месяцев__лептоспироз_телочки_2.md"
