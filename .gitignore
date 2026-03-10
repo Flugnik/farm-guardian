@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environments
+venv/
+.venv/
+
+# Secrets
+farm_guardian/config/secrets.json
+TELEGRAM_TOKEN*
+*.txt
+
+# Runtime storage
+farm_guardian/storage/*.json
+
+# Logs
+*.log
+
+# Codex
+.codex/
+
+# OS
+.DS_Store
+Thumbs.db
