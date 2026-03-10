@@ -24,3 +24,6 @@ farm_guardian/storage/*.json
 # OS
 .DS_Store
 Thumbs.db
+farm_guardian/farm_memory/farm_memory_generated.zip
+farm_guardian/farm_memory/sensors/weather.json
+farm_guardian/storage/*.json
